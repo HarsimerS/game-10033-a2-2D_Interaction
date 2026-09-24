@@ -1,4 +1,5 @@
 ﻿// Include the namespaces (code libraries) you need below.
+using Raylib_cs;
 using System;
 using System.Numerics;
 
@@ -11,24 +12,20 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
-        const int GROUND_Y = 220;
-        const int HURT_FRAMES_APPLIED = 20;
-        const int SPLAT_FRAMES_APPLIED = 90;
-        const int HURT_DRAIN = 1;
-        int hurt_timer = 0;
-        int splat_timer = 0;
-        Vector2 center_position = new Vector2(200, 200);
-
+        // 0 == red, 1 == orange, 2 == yellow, 3 == green, 4 == blue, 5 == purple, 6 == gray, 7 == black, 8 == white
+        int color_choice = 0;
+        int width = 7;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
         public void Setup()
         {
-            // Basically the premise is that you "poke" Ralsie from Deltarune
-            Window.SetTitle("Poke Ralsie");
+            // Basically the premise is that you can draw with a software that could be used like "Can we use Krita?" "No we have Krita at home" *The Krita at home*
+            Window.SetTitle("The drawing software at home");
             // The max size the assignement has mentioned
             Window.SetSize(400, 400);
+            Window.ClearBackground(Color.White);
         }
 
         /// <summary>
@@ -36,20 +33,31 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
-            // Since pixels drawn don't get auto cleared on their own, we have to manually clear everything at the start of every frame
-            Window.ClearBackground(Color.White);
+            bool is_left_clicking = Input.IsMouseButtonDown(MouseInput.Left);
 
-            // TODO: While idle (no inputs pressed), we draw Ralsie's idle sprite at the center, facing towards the "camera", aka, you
+            bool pressed_up = Input.IsKeyboardKeyPressed(KeyboardInput.Up);
+            bool pressed_down = Input.IsKeyboardKeyPressed(KeyboardInput.Down);
 
-            // TODO_2: If Mouse Left Click is detected within the specified range of Ralsie, `hurt_timer` gets increased by `HURT_FRAMES_APPLIED`
-            // Continue; Then every frame lowers it by `HURT_DRAIN`, so once it reaches 0, Ralsie goes back to idle sprite, otherwise, stays in hurt sprite
+            bool pressed_1 = Input.IsKeyboardKeyPressed(KeyboardInput.One);
+            bool pressed_2 = Input.IsKeyboardKeyPressed(KeyboardInput.Two);
+            bool pressed_3 = Input.IsKeyboardKeyPressed(KeyboardInput.Three);
+            bool pressed_4 = Input.IsKeyboardKeyPressed(KeyboardInput.Four);
+            bool pressed_5 = Input.IsKeyboardKeyPressed(KeyboardInput.Five);
+            bool pressed_6 = Input.IsKeyboardKeyPressed(KeyboardInput.Six);
+            bool pressed_7 = Input.IsKeyboardKeyPressed(KeyboardInput.Seven);
+            bool pressed_8 = Input.IsKeyboardKeyPressed(KeyboardInput.Eight);
+            bool pressed_9 = Input.IsKeyboardKeyPressed(KeyboardInput.Nine);
+            
+            // TODO_1: Have each number key change the color that would be used to draw shapes
 
-            // TODO_3: If Mouse Right Click is held, Ralsie's center position is latched to the mouse for as long as Right Click is held. There should be a latched sprite when held
-            // Continue; If the mouse lets go, Ralsie should start falling with increasing gravity. Upon landing, by reaching `GROUND_Y`, Ralsie will go into splat sprite
-            // Continue; Ralsie will remain in that sprite until the timer `splat_timer` reaches 0, which initially get increased from `SPLAT_FRAMES_APPLIED`
+            // TODO_2: Have the up and down arrow key change the width of the shape
+
+            // TODO_3: Have Space Bar clear the background to white
+
+            // TODO_4: Left click will draw a circle at mouse postion with the width var
 
 
-            // TODO_4: Ralsie can't be interacted with until `splat_timer` reaches 0
+
         }
     }
 
