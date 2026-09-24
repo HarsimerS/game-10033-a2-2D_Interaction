@@ -15,6 +15,7 @@ namespace MohawkGame2D
         int color_choice = 0;
         // width of the "brush"
         int width = 7;
+        Color selected_col = new Color();
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -26,6 +27,8 @@ namespace MohawkGame2D
             // The max size the assignement has mentioned
             Window.SetSize(400, 400);
             Window.ClearBackground(Color.White);
+            selected_col = Color.Black;
+            Draw.FillColor = selected_col;
         }
 
         /// <summary>
@@ -73,43 +76,44 @@ namespace MohawkGame2D
 
             if (pressed_1 == true)
             {
-                Draw.FillColor = Color.Red;
+                selected_col = Color.Red;
             }
             if (pressed_2 == true)
             {
-                Draw.FillColor = new(255, 128, 0);
+                selected_col = new(255, 128, 0);
             }
             if (pressed_3 == true)
             {
-                Draw.FillColor = Color.Yellow;
+                selected_col = Color.Yellow;
             }
             if (pressed_4 == true)
             {
-                Draw.FillColor = Color.Green;
+                selected_col = Color.Green;
             }
             if (pressed_5 == true)
             {
-                Draw.FillColor = Color.Blue;
+                selected_col = Color.Blue;
             }
             if (pressed_6 == true)
             {
-                Draw.FillColor = Color.Magenta;
+                selected_col = Color.Magenta;
             }
             if (pressed_7 == true)
             {
-                Draw.FillColor = Color.Gray;
+                selected_col = Color.Gray;
             }
             if (pressed_8 == true)
             {
-                Draw.FillColor = Color.Black;
+                selected_col = Color.Black;
             }
             if (pressed_9 == true)
             {
-                Draw.FillColor = Color.White;
+                selected_col = Color.White;
             }
 
             // Need to use this, otherwise no matter the color, there would be a small black outline around each drawn shape
-            Draw.LineColor = Draw.FillColor;
+            Draw.LineColor = selected_col;
+            Draw.FillColor = selected_col;
 
             // Since I need the drawn shapes and doodles to stay, I only have it clear it if Space is pressed
             bool space_click = Input.IsKeyboardKeyDown(KeyboardInput.Space);
