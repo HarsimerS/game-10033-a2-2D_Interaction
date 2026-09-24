@@ -11,10 +11,9 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
-        // 0 == red, 1 == orange, 2 == yellow, 3 == green, 4 == blue, 5 == purple, 6 == gray, 7 == black, 8 == white
-        int color_choice = 0;
         // width of the "brush"
         int width = 7;
+        // Stores the selected color to be used to draw
         Color selected_col = new Color();
 
         /// <summary>
@@ -40,7 +39,7 @@ namespace MohawkGame2D
 
             bool pressed_up = Input.IsKeyboardKeyPressed(KeyboardInput.Up);
             bool pressed_down = Input.IsKeyboardKeyPressed(KeyboardInput.Down);
-
+            // 1 == red, 2 == orange, 3 == yellow, 4 == green, 5 == blue, 6 == purple, 7 == gray, 8 == black, 9 == white
             bool pressed_1 = Input.IsKeyboardKeyPressed(KeyboardInput.One);
             bool pressed_2 = Input.IsKeyboardKeyPressed(KeyboardInput.Two);
             bool pressed_3 = Input.IsKeyboardKeyPressed(KeyboardInput.Three);
