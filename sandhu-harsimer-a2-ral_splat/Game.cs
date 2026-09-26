@@ -49,7 +49,10 @@ namespace MohawkGame2D
             bool pressed_7 = Input.IsKeyboardKeyPressed(KeyboardInput.Seven);
             bool pressed_8 = Input.IsKeyboardKeyPressed(KeyboardInput.Eight);
             bool pressed_9 = Input.IsKeyboardKeyPressed(KeyboardInput.Nine);
-
+            Color temp_color_holder = new Color();
+            // Temp Color storage so the user's color choice doesn't get overwritten later
+            float outline_size_holder = 1f;
+            float offset = 2.44444444f;
             // TODO_1: Have each number key change the color that would be used to draw shapes (DONE)
 
             // TODO_2: Have the up and down arrow key change the width of the shape (DONE)
@@ -57,6 +60,43 @@ namespace MohawkGame2D
             // TODO_3: Have Space Bar clear the background to white (DONE)
 
             // TODO_4: Left click will draw a circle at mouse postion with the width var (DONE)
+
+            // TODO_5: Show colors left to right order so people know which num key does what (DONE)
+            temp_color_holder = selected_col;
+
+            // This block here is for drawing colors red to white from left to right
+            Draw.LineSize = 0.5f;
+            Draw.FillColor = Color.Red;
+            Draw.Rectangle(offset, 375, 44, 25);
+            offset += 44;
+            Draw.FillColor = new(255, 128, 0);
+            Draw.Rectangle(offset, 375, 44, 25);
+            offset += 44;
+            Draw.FillColor = Color.Yellow;
+            Draw.Rectangle(offset, 375, 44, 25);
+            offset += 44;
+            Draw.FillColor = Color.Green;
+            Draw.Rectangle(offset, 375, 44, 25);
+            offset += 44;
+            Draw.FillColor = Color.Blue;
+            Draw.Rectangle(offset, 375, 44, 25);
+            offset += 44;
+            Draw.FillColor = Color.Magenta;
+            Draw.Rectangle(offset, 375, 44, 25);
+            offset += 44;
+            Draw.FillColor = Color.Gray;
+            Draw.Rectangle(offset, 375, 44, 25);
+            offset += 44;
+            Draw.FillColor = Color.Black;
+            Draw.Rectangle(offset, 375, 44, 25);
+            offset += 44;
+            Draw.FillColor = Color.White;
+            Draw.Rectangle(offset, 375, 44, 25);
+            offset += 44;
+            // offset just makes it easier to space out each rectangle from each other
+            
+            // The initial picked color by the user is then restored
+            Draw.FillColor = temp_color_holder;
 
             if (pressed_up == true)
             {
@@ -112,7 +152,10 @@ namespace MohawkGame2D
 
             // Need to use this, otherwise no matter the color, there would be a small black outline around each drawn shape
             Draw.LineColor = selected_col;
+            Draw.LineSize = outline_size_holder;
             Draw.FillColor = selected_col;
+
+            Draw.Rectangle(0, 0, 450, 5);
 
             // Since I need the drawn shapes and doodles to stay, I only have it clear it if Space is pressed
             bool space_click = Input.IsKeyboardKeyDown(KeyboardInput.Space);
