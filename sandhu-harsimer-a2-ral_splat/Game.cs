@@ -94,9 +94,9 @@ namespace MohawkGame2D
             Draw.Rectangle(offset, 375, 44, 25);
             offset += 44;
             Draw.FillColor = Color.Black;
-            Draw.Ellipse(375, 350, 20, 35);
+            Draw.Ellipse(375, 345, 20, 20);
             Draw.FillColor = Color.White;
-            Draw.Ellipse(375, 350, 10, 25);
+            Draw.Ellipse(375, 345, 10, 10);
             Draw.Rectangle(offset, 375, 44, 25);
             offset += 44;
             // offset just makes it easier to space out each rectangle from each other
