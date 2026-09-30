@@ -65,9 +65,12 @@ namespace MohawkGame2D
             temp_color_holder = selected_col;
 
             // This block here is for drawing colors red to white from left to right
+            // Also draws a number via shapes to show 1 to 0 to indicate the control
             Draw.LineSize = 0.5f;
             Draw.FillColor = Color.Red;
             Draw.Rectangle(offset, 375, 44, 25);
+            Draw.FillColor = Color.Black;
+            Draw.Rectangle(18, 340, 5, 30);
             offset += 44;
             Draw.FillColor = new(255, 128, 0);
             Draw.Rectangle(offset, 375, 44, 25);
@@ -90,7 +93,10 @@ namespace MohawkGame2D
             Draw.FillColor = Color.Black;
             Draw.Rectangle(offset, 375, 44, 25);
             offset += 44;
+            Draw.FillColor = Color.Black;
+            Draw.Ellipse(375, 350, 20, 35);
             Draw.FillColor = Color.White;
+            Draw.Ellipse(375, 350, 10, 25);
             Draw.Rectangle(offset, 375, 44, 25);
             offset += 44;
             // offset just makes it easier to space out each rectangle from each other
@@ -169,6 +175,7 @@ namespace MohawkGame2D
                 Draw.Circle(Input.GetMouseX(), Input.GetMouseY(), width);
             }
 
+            
         }
     }
 
